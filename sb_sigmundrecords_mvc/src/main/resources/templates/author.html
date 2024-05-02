@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+		<table th:if = "${authordtolist} != null">
+			<tr th:each="author : ${authordtolist.getAuthorListDto()}" >
+					
+						<td th:text="${author.getName()}"></td>
+						<td th:text="${author.getOccurence()}"></td>
+						
+		</table>
+	
+	</body>
+</html>
