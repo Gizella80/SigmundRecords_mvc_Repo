@@ -6,7 +6,17 @@
 	</head>
 	<body>
 	
-		<table th:if = "${authordtolist} != null">
+		<form action="/author/order" method="get">
+			<select name="orderby">
+				<option value="abc">ABC</option>
+				<option value="321">321</option>
+			</select>
+			<input type="submit" />
+		</form>
+	
+		
+	
+		<table >
 			<tr th:each="author : ${authordtolist.getAuthorListDto()}" >
 					
 						<td th:text="${author.getName()}"></td>

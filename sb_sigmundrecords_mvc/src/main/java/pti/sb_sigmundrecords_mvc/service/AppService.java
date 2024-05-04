@@ -25,14 +25,14 @@ public class AppService {
 		this.parser = parser;
 	}
 
-	public AuthorListDto getAuthorsByPosition(int position) throws JDOMException, IOException {
+	public AuthorListDto getAuthorsAndOccurences(String orderBy) throws JDOMException, IOException {
 		
 		AuthorListDto authorListDto = new AuthorListDto();
 		
-		List<Author> authors = parser.getAllAuthorsByPosition(position);
+		List<Author> authors = parser.getAllAuthorsByPosition();
 		
 		for(int i = 0; i< authors.size(); i++) {
-			System.out.println(authors.get(i));
+			System.out.println(authors.get(i)+" service");
 		}
 		
 		
@@ -40,22 +40,35 @@ public class AppService {
 			
 			Author currentAuthor = authors.get(index);
 			
-			AuthorDto authorDto = new AuthorDto( 
-					currentAuthor.getName());
-			for(int index_ofDtoList = 0; index_ofDtoList < authorListDto.getAuthorListDto().size();index_ofDtoList++) {
-				if(currentAuthor.getName().equals(authorListDto.getAuthorListDto().get(index_ofDtoList).getName())){
-					authorListDto.getAuthorListDto().get(index_ofDtoList).setOccurence();
-					
-				}else {
-					authorListDto.add(authorDto);
-				}
+			AuthorDto searchedAuthorDto = authorListDto.getAuthorDtoByName(currentAuthor.getName());
+			if(searchedAuthorDto != null){
+				searchedAuthorDto.setOccurence();
+				
+			}else {
+				AuthorDto  authorDto = new AuthorDto(currentAuthor.getName());
+				authorListDto.add(authorDto);
 			}
+					
+			
+			
 		}
 		
-		authorListDto.order();
+		if( (orderBy == null) || (orderBy.equals("abc")) ) {
+			authorListDto.orderByName();
+		}
+		else if( orderBy.equals("321") ) {
+			authorListDto.orderByOccurances();
+		}	
+		
+		
+		
+		
+		//authorListDto.order();
 		
 		return authorListDto;
 	}
+
+	
 	
 	
 }
