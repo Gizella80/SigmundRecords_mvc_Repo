@@ -7,31 +7,23 @@ import java.util.List;
 public class AuthorListDto {
 	
 	private List<AuthorDto> authorListDto;
-
 	
-
 	public AuthorListDto() {
 		super();
 		authorListDto = new ArrayList<>();
 	}
 
-	
-	
 	public List<AuthorDto> getAuthorListDto() {
 		return authorListDto;
 	}
-
-
 
 	public void setAuthorListDto(List<AuthorDto> authorListDto) {
 		this.authorListDto = authorListDto;
 	}
 
-
-
 	public void add(AuthorDto authorDto) {
 		
-	this.authorListDto.add(authorDto);
+		this.authorListDto.add(authorDto);
 	}
 	
 	
@@ -51,6 +43,7 @@ public class AuthorListDto {
 		}
 		return authorDto;
 	}
+	
 	
 	public void orderByName() {
 		for(int currentIndex = 0; currentIndex < authorListDto.size(); currentIndex++) {

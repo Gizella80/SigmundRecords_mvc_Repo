@@ -1,8 +1,12 @@
 package pti.sb_sigmundrecords_mvc.model;
 
+
+
 public class Author {
 	
+	
 	private String name;
+	
 	private String position;
 	
 	

@@ -24,8 +24,13 @@ public class AuthorDto {
 		return occurence;
 	}
 	
-	public void setOccurence() {
-		this.occurence ++;
+	public void setOccurence(int occurence) {
+		this.occurence = occurence;
+	}
+
+	public void incrementOccurence() {
+		this.occurence++;
+		
 	}
 	
 	@Override

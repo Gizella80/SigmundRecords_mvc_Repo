@@ -5,7 +5,32 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-	
+		<form action="/author/save" method="get">
+			<select name="choice">
+				<option value="html">Into HTML</option>
+				<option value="database">Into Database</option>
+			</select>
+			<input type="submit" />
+		</form>
+		
+		
+		
+		<form action="/author/read" method="get">
+			<select name="read">
+				<option value="xml">Show Authors From XML</option>
+				<option value="database"> Show Authors from Database</option>
+			</select>
+			<input type="text" name="address" placeholder="Html Address" />
+			<input type="submit" />
+		</form>
+		
+		
+		<form action="/author/search" method = "get">
+		<input type="text" name="yourtext" placeholder="Your Text" />
+		<input type="submit" />
+		</form>
+		
+		
 		<form action="/author/order" method="get">
 			<select name="orderby">
 				<option value="abc">ABC</option>
